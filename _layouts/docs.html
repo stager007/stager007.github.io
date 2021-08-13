@@ -1,0 +1,89 @@
+---
+permalink: /docs/
+title: Documentations
+description: Descagar bueno no virus
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ page.title }} | Omniarchive Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,900" rel="stylesheet" />
+    <link rel="stylesheet" href="/files/styles.css">
+    <link rel="shortcut icon" type="image/png" href="/files/logo.png" />
+
+    <meta property="og:title" content="Omniarchive Docs - {{ page.title }}" />
+    <meta property="og:description" content="Omniarchive's documentations will help with almost everything!" />
+    <meta property="og:site_name" content="omniarchive.net" />
+    <meta property="og:url" content="omniarchive.net" />
+    <meta property="og:image" content="/files/logo.png" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navlogo">
+
+        </div>
+        <a href="/">Home</a>
+        <a href="/faq">FAQ</a>
+        <a href="/downloads">Downloads</a>
+        <a href="/discord">Discord</a>
+        <a href="/sheet">Index</a>
+    </div>
+
+    <div class="sidenav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+        <button class="dropdown-btn">Dropdown
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+        <a href="#contact">Search</a>
+    </div>
+
+    <div class="main">
+        <div class="pagetitle">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="whitecurved">
+            <img src="/files/logo.png">
+
+            {{ content }}
+
+        </div>
+        <div class="bottomline"></div>
+    </div>
+
+    <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    <div class="footer">
+        <p>&copy Omniarchive | Designed by <a href="https://dejvoss.cz">DEJVOSS</a></p>
+    </div>
+
+</body>
+
+</html>
