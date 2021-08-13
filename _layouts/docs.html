@@ -186,14 +186,14 @@
 
         /* Fixed sidenav, full height */
         .sidenav {
-            height: 90%;
+            height: 100%;
             width: 200px;
             position: fixed;
             z-index: 1;
             top: 0;
             left: 0;
             background-color: #111;
-            overflow-x: hidden;
+            /*overflow-x: hidden;*/
             padding-top: 20px;
         }
 
@@ -202,7 +202,7 @@
         .dropdown-btn {
             padding: 6px 8px 6px 16px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 15px;
             color: #818181;
             display: block;
             border: none;
@@ -223,14 +223,13 @@
         .main {
             margin-left: 200px;
             /* Same as the width of the sidenav */
-            font-size: 20px;
             /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
 
         /* Add an active class to the active dropdown button */
         .active {
-            background-color: green;
+            background-color: rgb(58, 58, 58);
             color: white;
         }
 
@@ -246,10 +245,34 @@
             float: right;
             padding-right: 8px;
         }
+
+        .dropdown-container {
+            position: absolute;
+            width: 100%;
+            left: 100%;
+            z-index: 1;
+            top: 0px;
+        }
+
+        .dropdown-menu {
+            position: relative;
+        }
+
+        /* Some media queries for responsiveness */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
     </style>
     <title>{{ page.title }} | Omniarchive Docs</title>
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,900" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/files/styles.css">
     <link rel="shortcut icon" type="image/png" href="/files/logo.png" />
 
@@ -274,15 +297,34 @@
 
     <div class="sidenav">
         <br><br>
-        <button class="dropdown-btn">Java Edition
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+        <div class="dropdown-menu">
+            <button class="dropdown-btn">Java Edition
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <div class="dropdown-menu">
+                    <button class="dropdown-btn">Playing Old Versions
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">BetaCraft (Recommended)</a>
+                        <a href="#">MultiMC</a>
+                        <a href="#">Mojang's Launcher</a>
+                    </div>
+                </div>
+                <a href="#">Installing mods</a>
+                <div class="dropdown-menu">
+                    <button class="dropdown-btn">Hosting Servers
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">Classic - Alpha</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="#contact">Search</a>
     </div>
 
     <div class="main">
